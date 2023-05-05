@@ -3,7 +3,7 @@ package seven.belog;
 public record Card(
     CardValue value,
     CardSuit suit
-) {
+) implements Comparable<Card> {
 
     public static Card of(String descriptor) {
         if (descriptor.length() != 2) {
@@ -19,5 +19,14 @@ public record Card(
     @Override
     public String toString() {
         return value + " of " + suit;
+    }
+
+    @Override
+    public int compareTo(Card other) {
+        if (this.value == other.value) {
+            return 0;
+        }
+
+        return this.value.getWeight() > other.value.getWeight() ? 1 : -1;
     }
 }

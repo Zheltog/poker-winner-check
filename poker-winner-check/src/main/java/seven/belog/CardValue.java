@@ -1,19 +1,29 @@
 package seven.belog;
 
 public enum CardValue {
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
-    TEN,
-    JACK,
-    QUEEN,
-    KING,
-    ACE;
+    TWO(1),
+    THREE(2),
+    FOUR(3),
+    FIVE(4),
+    SIX(5),
+    SEVEN(6),
+    EIGHT(7),
+    NINE(8),
+    TEN(9),
+    JACK(10),
+    QUEEN(11),
+    KING(12),
+    ACE(13);
+
+    private final int weight;
+
+    CardValue(int weight) {
+        this.weight = weight;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
 
     public static CardValue of(char descriptor) {
         return switch (descriptor) {
