@@ -1,9 +1,14 @@
 package seven.belog;
 
+import org.junit.jupiter.api.Test;
 import java.util.List;
 
-public class Main {
-    public static void main(String[] args) {
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+public class PokerHandTest {
+
+    @Test
+    void compareHands() {
         var hands = List.of(
             new PokerHand("KH 2S 8C JD 6D"),
             new PokerHand("5S 5D JC TH 3C"),
@@ -16,6 +21,10 @@ public class Main {
             new PokerHand("4C 5C 3C 7C 6C"),
             new PokerHand("JD TD KD QD AD")
         );
-        System.out.println(hands.stream().max(PokerHand::compareTo).orElseThrow(IllegalAccessError::new));
+
+        var bestHand = hands.stream().max(PokerHand::compareTo).orElseThrow(IllegalAccessError::new);
+
+        assertThat(bestHand.combination).isEqualTo(Combination.ROYAL_FLUSH);
+        assertThat(bestHand.hidhCard).isEqualTo(Card.of("AD"));
     }
 }
