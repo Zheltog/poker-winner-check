@@ -12,10 +12,10 @@ public class Main {
             new PokerHand("9C 7S 8D JD TH"),
             new PokerHand("KS 9S JS 5S AS"),
             new PokerHand("TH TC TD 2S 2D"),
-            new PokerHand("4C 5C 3C 7C 6C"),
+            new PokerHand("4S 4H 4C 4D KS"),
             new PokerHand("4C 5C 3C 7C 6C"),
             new PokerHand("JD TD KD QD AD")
         );
-        System.out.println(hands.stream().max(PokerHand::compareTo).orElseThrow(IllegalAccessError::new));
+        System.out.println(hands.stream().max(PokerHand::compareTo).orElseThrow(IllegalStateException::new));
     }
 }

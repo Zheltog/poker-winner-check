@@ -27,7 +27,7 @@ public class CombinationTest {
             Card.of("6C")
         ))).isEqualTo(Combination.STRAIGHT_FLUSH);
 
-        // 4C 5C 3C 7C 6C -> FOUR OF A KING
+        // 4S 4H 4C 4D KS -> FOUR OF A KING
         assertThat(Combination.of(List.of(
             Card.of("4S"),
             Card.of("4H"),
